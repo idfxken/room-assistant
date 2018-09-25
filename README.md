@@ -53,6 +53,12 @@ npm start
 
 Any additional dependencies of the services you selected will be downloaded before the software starts.
 
+#### Running without root/sudo
+
+This enables us to send/receive ble data without root by giving rights to the node process:
+
+sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+
 #### Making it a service
 
 To make sure your room-assistant is always running you should setup a service for it. On newer systems this can be done easily using systemd.
